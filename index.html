@@ -1,1 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <title>Miharbi Bahcem</title>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+        }
+
+        .logo h2 {
+            margin: 0;
+        }
+
+        .nav_links {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: center; 
+        }
+
+        .nav_links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav_links a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 2rem;
+        }
+
+        #arama {
+            text-align: center;
+        }
+
+        #bitkiSecimi {
+            border-radius: 10px;
+            font-size: 1.2em;
+            padding: 0.5em;
+            width: 300px;
+            border: 1px solid #ccc;
+            margin-right: 20px;
+        }
+
+        #bitkiAraBtn {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+
+        .innerbitkiler_child {
+            display: none;
+        }
+
+        .innerbitkiler_child img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .innerbitkiler {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: auto;
+            max-width: 800px;
+        }
+
+       
+        @media only screen and (min-width: 600px) {
+            .navbar {
+                flex-direction: row; 
+                justify-content: space-between;
+            }
+
+            .nav_links {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <h2><a href="#">Miharbi Bahcem</a></h2>
+            </div>
+            <ul class="nav_links">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#bitkiler">Bitkiler</a></li>
+                <li><a href="#hakkimda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+                <li><a href="#" onclick="openSepet()">Sepet</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- ANASAYFA --->
+    <section id="anasayfa">
+        <div class="inner_anasayfa">
+            <div class="child_anasayfa">
+                <h1>BİTKİLER DÜNYASINI KEŞFEDİN</h1>
+            </div>
+            <div class="child_anasayfa">
+                <img src="img/anasayfaGiris.jpg" alt="">
+            </div>
+        </div>
+    </section>
+    <!-- bitkiler-->
+    <section id="bitkiler">
+        <div class="section_title">
+            <h2>BİTKİLER</h2>
+        </div>
+        <!-- Eklenen Kod Başlangıcı -->
+        <section id="arama">
+            <div class="section_title">
+                <h2>Bitki Seç</h2>
+            </div>
+            <div class="inner_arama">
+                <div class="arama_child">
+                    <select id="bitkiSecimi">
+                        <option value="ceviz">Ceviz</option>
+                        <option value="zeytin">Zeytin</option>
+                        <option value="badem">Badem</option>
+                        <option value="domates">Domates</option>
+                        <option value="fasulye">Fasulye</option>
+                        <option value="elma">Elma</option>
+                        <option value="armut">Armut</option>
+                        <option value="erik">Erik</option>
+                        <option value="seftali">Şeftali</option>
+                        <option value="incir">İncir</option>
+                        <!-- Diğer bitkileri buraya ekleyebilirsin -->
+                    </select>
+                    <button id="bitkiAraBtn" onclick="ara()">Ara</button>
+                </div>
+            </div>
+        </section>
+        <!-- Eklenen Kod Sonu -->
+
+        <div class="innerbitkiler">
+            <!-- Ceviz Bitkisi -->
+            <div id="ceviz" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Ceviz için bir simge ekleyebilirsin -->
+                    <img src="img/ceviz.jpeg" alt="Ceviz Icon">
+                </div>
+                <h3>CEVİZ</h3>
+                <p>
+                    Ceviz ağaçları genellikle tam güneş ışığına maruz kalmalıdır.
+                    Ilıman iklimleri tercih ederler ve kışın düşük sıcaklıklara dayanabilirler.
+                    İyi drenajlı, verimli ve hafif alkali topraklar uygun tercih olabilir.
+                    Toprak iyi drenajlı olmalı ve su birikmesi engellenmelidir.
+                    Düzenli ve derin sulama tercih edilir. Toprak yüzeyi kuruduğunda sulama yapılmalıdır.
+                </p>
+            </div>
+
+            <!-- Zeytin Bitkisi -->
+            <div id="zeytin" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Zeytin için bir simge ekleyebilirsin -->
+                    <img src="img/zeytin.png" alt="Zeytin Icon">
+                </div>
+                <h3>ZEYTİN</h3>
+                <p>
+                    Zeytin ağaçları genellikle güneşli iklimleri ve kireçli toprakları tercih eder.
+                    İyi drenajlı topraklarda yetişir ve soğuk hava koşullarından korunmalıdır.
+                    Zeytin ağaçları iyi drenajlı toprakları tercih eder.
+                    Genellikle derin ve düzenli sulama gerektirir, ancak aşırı sulamadan kaçınılmalıdır.
+                </p>
+            </div>
+
+            <!-- Badem Bitkisi -->
+            <div id="badem" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Badem için bir simge ekleyebilirsin -->
+                    <img src="img/badem.jpeg" alt="Badem Icon">
+                </div>
+                <h3>BADEM</h3>
+                <p>
+                    Badem ağaçları genellikle güneşli iklimleri ve iyi drenajlı toprakları tercih eder.
+                    Toprak pH seviyesi 6 ila 7 arasında olmalıdır.
+                    Düzenli ve derin sulama tercih edilir, ancak aşırı sulamadan kaçınılmalıdır.
+                    Ağacın çevresini saran otları kontrol etmek ve temizlemek önemlidir.
+                </p>
+            </div>
+
+            <!-- Domates Bitkisi -->
+            <div id="domates" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Domates için bir simge ekleyebilirsin -->
+                    <img src="img/domates.jpeg" alt="Domates Icon">
+                </div>
+                <h3>DOMATES</h3>
+                <p>
+                    Domates bitkileri genellikle güneşli ortamları tercih eder.
+                    Toprak iyi drenajlı olmalı ve organik madde bakımından zengin olmalıdır.
+                    Düzenli sulama ve gübreleme önemlidir.
+                    Fide döneminde özellikle dikkatli sulama yapılmalıdır.
+                </p>
+            </div>
+
+            <!-- Fasulye Bitkisi -->
+            <div id="fasulye" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Fasulye için bir simge ekleyebilirsin -->
+                    <img src="img/fasulye.jpeg" alt="Fasulye Icon">
+                </div>
+                <h3>FASULYE</h3>
+                <p>
+                    Fasulye bitkileri genellikle güneşli ve sıcak iklimleri tercih eder.
+                    İyi drenajlı topraklar ve organik madde bakımından zengin topraklar uygun olabilir.
+                    Fasulye yetiştirirken düzenli sulama ve destekleme önemlidir.
+                    Toprak nemini korumak için malç kullanılabilir.
+                </p>
+            </div>
+
+            <!-- Elma Bitkisi -->
+            <div id="elma" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Elma için bir simge ekleyebilirsin -->
+                    <img src="img/elma.jpeg" alt="Elma Icon">
+                </div>
+                <h3>ELMA</h3>
+                <p>
+                    Elma ağaçları genellikle güneşli iklimleri tercih eder.
+                    İyi drenajlı ve nemli topraklarda yetişir.
+                    Düzenli sulama ve gübreleme gerektirir.
+                    Ağaçların çevresindeki otları kontrol etmek önemlidir.
+                </p>
+            </div>
+
+            <!-- Armut Bitkisi -->
+            <div id="armut" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Armut için bir simge ekleyebilirsin -->
+                    <img src="img/armut.jpeg" alt="Armut Icon">
+                </div>
+                <h3>ARMUT</h3>
+                <p>
+                    Armut ağaçları genellikle güneşli iklimleri tercih eder.
+                    İyi drenajlı topraklarda yetişir ve düzenli sulama ister.
+                    Aşırı sulama ve su birikmesinden kaçınılmalıdır.
+                    Ağaçları desteklemek için yaz aylarında gübreleme yapılabilir.
+                </p>
+            </div>
+
+            <!-- Erik Bitkisi -->
+            <div id="erik" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Erik için bir simge ekleyebilirsin -->
+                    <img src="img/erik.jpeg" alt="Erik Icon">
+                </div>
+                <h3>ERİK</h3>
+                <p>
+                    Erik ağaçları genellikle güneşli iklimleri tercih eder.
+                    İyi drenajlı topraklarda yetişir ve düzenli sulama ister.
+                    Ağaçlar gençken budama ile şekillendirilebilir.
+                    Hastalıklardan korunmak için düzenli kontrol yapılmalıdır.
+                </p>
+            </div>
+
+            <!-- Şeftali Bitkisi -->
+            <div id="seftali" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- Şeftali için bir simge ekleyebilirsin -->
+                    <img src="img/seftali.jpeg" alt="Şeftali Icon">
+                </div>
+                <h3>ŞEFTALİ</h3>
+                <p>
+                    Şeftali ağaçları genellikle güneşli iklimleri tercih eder.
+                    İyi drenajlı topraklarda yetişir ve düzenli sulama ister.
+                    Ağaçları desteklemek için gübreleme yapılabilir.
+                    Hasat zamanında dikkatli olunmalı ve olgunlaşmış meyveler toplanmalıdır.
+                </p>
+            </div>
+
+            <!-- İncir Bitkisi -->
+            <div id="incir" class="innerbitkiler_child">
+                <div class="icon">
+                    <!-- İncir için bir simge ekleyebilirsin -->
+                    <img src="img/incir.jpeg" alt="İncir Icon">
+                </div>
+                <h3>İNCİR</h3>
+                <p>
+                    İncir ağaçları genellikle güneşli iklimleri tercih eder.
+                    İyi drenajlı topraklarda yetişir ve düzenli sulama ister.
+                    Ağaçların etrafındaki otları kontrol etmek önemlidir.
+                    Toprak yüzeyi kuruduğunda sulama yapılmalıdır.
+                </p>
+            </div>
+
+            <!-- Diğer bitkileri buraya ekleyebilirsin -->
+        </div>
+
+
+    </section>
+    <!-- HAKKIMDA-->
+    <section id="hakkimda">
+        <div class="section_title">
+            <h2>Çalıştığım Firmalar Ne Söylediler?</h2>
+        </div>
+        <div class="inner_testi">
+            <div class="child_testi">
+                <div class="testi_img">
+                    <img src="img/kisi2.webp" alt="">
+                </div>
+
+                <p>" Miharbi Bahcem çok mükemmel dklfjfklsdjlkfjdslfssdflşfdklfjdsklfjdksfjlsdfjkdsjfjdslkfjdsklfj"</p>
+                <a class="test_highlight" href="#"> Mehmetcan Akbulut</a>
+                <p>Firma CEO</p>
+            </div>
+            <div class="child_testi">
+                <div class="testi_img">
+                    <img src="img/kisi3.webp" alt="">
+                </div>
+
+                <p>" Miharbi Bahcem işini iyi yapan Firma jkfdlsjlfksdfjskdlfjsfdkfljsdflkjdsfkjsdlffdfksldfjsdlkjf"</p>
+                <a class="test_highlight" href="#"> Yaşar Eren Göşgüncü</a>
+                <p>Firma CEO</p>
+            </div>
+            <div class="child_testi">
+                <div class="testi_img">
+                    <img src="img/kisi4.webp" alt="">
+                </div>
+
+                <p>" Miharbi Bahcem çok mükemmel mütiş bişi kldskjsdkfkdkkjdskfdjskfljdsklfjdsklfjkldsklfjjsdkflsdfj"
+                </p>
+                <a class="test_highlight" href="#"> İbrahim Ildıran</a>
+                <p>Firma CEO</p>
+            </div>
+            <div class="child_testi">
+                <div class="testi_img">
+                    <img src="img/kisi5.webp" alt="">
+                </div>
+
+                <p>" Miharbi Bahcem çok mükemmel ksdfjlfksdjfldfmsdlfkşsdlfsdffdsdkjfklsdjfkdlsfjkdlsfj"</p>
+                <a class="test_highlight" href="#"> Çetin Fidan</a>
+                <p>Firma CEO</p>
+            </div>
+        </div>
+    </section>
+    <!-- İLETİŞİM-->
+    <section id="iletisim">
+        <div class="section_title">
+            <h2>İletişime Geç</h2>
+        </div>
+        <div class="inner_contact">
+            <div class="child_contact">
+                <img src="img/iletisim.jpeg" alt="">
+            </div>
+            <div class="child_contact">
+                <form action="#">
+                    <input placeholder="İsim" type="text" name="fullname" id="">
+                    <input placeholder="E-mail" type="text" name="fullname" id="">
+                    <input placeholder="Tel" type="text" name="fullname" id="">
+                    <textarea placeholder="Mesaj" name="message" id="" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Gönder">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eklenen Kod Başlangıcı -->
+    <script>
+        function ara() {
+            var bitkiAdi = document.getElementById("bitkiSecimi").value.toLowerCase();
+
+            // Tüm bitki nesnelerini gizle
+            var bitkiNesneleri = document.querySelectorAll('.innerbitkiler_child');
+            bitkiNesneleri.forEach(function (nesne) {
+                nesne.style.display = 'none';
+            });
+
+            // Seçilen bitki nesnesini göster
+            var secilenBitki = document.getElementById(bitkiAdi);
+            if (secilenBitki) {
+                secilenBitki.style.display = 'block';
+            } else {
+                alert("Aranan bitki bulunamadı.");
+            }
+        }
+
+        function openSepet() {
+            // Bu fonksiyon, Sepet'e tıklandığında sepet.html dosyasını açar
+            window.location.href = 'sepet.html';
+        }
+
+    </script>
+    <!-- Eklenen Kod Sonu -->
+</body>
+
+</html>

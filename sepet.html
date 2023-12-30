@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitki Siparişi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #808080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select,
+        input {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+            box-sizing: border-box;
+        }
+
+        #selectboxContainer {
+            margin-top: 10px;
+        }
+
+        .selectboxRow {
+            display: flex;
+            margin-bottom: 10px;
+            flex-direction: column; 
+        }
+
+        .selectboxRow>div {
+            margin-bottom: 10px; 
+        }
+
+        #siparisListesi {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <h2>Bitki Siparişi</h2>
+
+        <button onclick="ekleSelectbox()">Ekle</button>
+
+        <div id="selectboxContainer"></div>
+
+        <button onclick="siparisVer()">Sipariş Ver</button>
+        <div id="siparisListesi"></div>
+    </div>
+
+    <script>
+        var bitkiFiyatlari = {
+            ceviz: 76,
+            zeytin: 50,
+            badem: 90,
+            domates: 5,
+            fasulye: 3,
+            elma: 15,
+            armut: 20,
+            erik: 25,
+            şeftali: 30,
+            incir: 18
+        };
+
+        function ekleSelectbox() {
+            var selectboxContainer = document.getElementById('selectboxContainer');
+
+            var selectbox = document.createElement('select');
+            selectbox.id = 'bitkiSecimi';
+            var bitkiler = ["Ceviz", "Zeytin", "Badem", "Domates", "Fasulye", "Elma", "Armut", "Erik", "Şeftali", "İncir"];
+
+            for (var i = 0; i < bitkiler.length; i++) {
+                var option = document.createElement('option');
+                option.value = bitkiler[i].toLowerCase();
+                option.text = bitkiler[i];
+                selectbox.add(option);
+            }
+
+            var kiloInput = document.createElement('input');
+            kiloInput.type = 'number';
+            kiloInput.placeholder = 'Kilo';
+
+            var containerDiv = document.createElement('div');
+            containerDiv.className = 'selectboxRow';
+            containerDiv.appendChild(selectbox);
+            containerDiv.appendChild(kiloInput);
+
+            selectboxContainer.appendChild(containerDiv);
+        }
+
+        function siparisVer() {
+            var selectboxList = document.querySelectorAll('#selectboxContainer select');
+            var kiloList = document.querySelectorAll('#selectboxContainer input');
+            var siparisListesi = document.getElementById('siparisListesi');
+
+            var toplamFiyat = 0;
+
+            var siparisler = [];
+
+            for (var i = 0; i < selectboxList.length; i++) {
+                var bitkiAdi = selectboxList[i].value;
+                var kilo = kiloList[i].value;
+
+                if (bitkiAdi && kilo) {
+                    var birimFiyat = bitkiFiyatlari[bitkiAdi.toLowerCase()];
+                    var toplamBirimFiyat = birimFiyat * kilo;
+
+                    siparisler.push(bitkiAdi + ' - ' + kilo + ' kg - Toplam Fiyat: ' + toplamBirimFiyat + ' TL');
+                    toplamFiyat += toplamBirimFiyat;
+                }
+            }
+
+            var siparisHTML = siparisler.map(function (siparis) {
+                return siparis + '<br>';
+            }).join('');
+
+            siparisListesi.innerHTML = '<p>Siparişleriniz:</p>' + siparisHTML + '<p>Toplam Fiyat: ' + toplamFiyat + ' TL</p>';
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
